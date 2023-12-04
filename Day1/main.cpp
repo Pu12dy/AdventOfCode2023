@@ -3,6 +3,18 @@
 #include <string>
 #include <vector>
 #include <numeric>
+#include <unordered_map>
+
+// Function to convert spelled-out numbers into numeric values
+int convSpelledNumbers(const std::string& word) {
+    static const std::unordered_map<std::string, int> spelledNumbers = {
+        {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5},
+        {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}
+    };
+    auto it = spelledNumbers.find(word);
+    return (it != spelledNumbers.end()) ? it->second : 0;
+};
+
 
 int main(){
 
